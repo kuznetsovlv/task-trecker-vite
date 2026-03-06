@@ -1,4 +1,4 @@
-import React, {memo, useState} from 'react';
+import  {memo, useState} from 'react';
 import {v4} from 'uuid'
 
 import type {Task} from '../../types.ts'
@@ -7,7 +7,7 @@ interface TaskCreatorProps {
     onAddTask(task: Task): void;
 }
 
-const TaskCreator: React.FC<TaskCreatorProps> = memo(({onAddTask}) => {
+const TaskCreator= memo<TaskCreatorProps> (({onAddTask}) => {
     const [text, setText] = useState<string>('');
 
     return <div>

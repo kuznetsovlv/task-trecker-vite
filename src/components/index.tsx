@@ -1,3 +1,4 @@
 import TaskCreator from './TaskCreator';
+import TaskList  from './TaskList';
 
-export {TaskCreator}
+export {TaskCreator, TaskList}
