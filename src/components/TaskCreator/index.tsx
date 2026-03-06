@@ -1,7 +1,8 @@
 import  {memo, useState} from 'react';
 import {v4} from 'uuid'
+import styles from './TasckCreator.module.scss'
 
-import type {Task} from '../../types.ts'
+import type {Task} from '@/types.ts'
 
 interface TaskCreatorProps {
     onAddTask(task: Task): void;
@@ -10,9 +11,9 @@ interface TaskCreatorProps {
 const TaskCreator= memo<TaskCreatorProps> (({onAddTask}) => {
     const [text, setText] = useState<string>('');
 
-    return <div>
-        <input type="text" value={text} onChange={({target: {value}}) => setText(value) }/>
-        <input type="button" value="Add" disabled={!text} onClick={() => {
+    return <div className={styles.creator}>
+        <input className={styles.input} type="text" value={text} onChange={({target: {value}}) => setText(value) }/>
+        <input className={styles.button} type="button" value="Add" disabled={!text} onClick={() => {
             onAddTask({id: v4(), text, completed: false});
             setText('');
         }}/>

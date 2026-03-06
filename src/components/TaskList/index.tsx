@@ -1,6 +1,7 @@
 import React from 'react';
+import styles from './TaskList.module.scss'
 
-import type {Task} from '../../types.ts'
+import type {Task} from '@/types.ts'
 import TaskItem from './TaskItem.tsx';
 
 interface TaskListProps {
@@ -9,8 +10,8 @@ interface TaskListProps {
 }
 
 const TaskList: React.FC<TaskListProps> = ({tasks, onChange}) => {
-    return <ul>
-        {tasks.map((task) => (<TaskItem key={task.id} {...task} onChange={onChange} />))}
+    return <ul className={styles.list}>
+        {tasks.map((task) => (<TaskItem key={task.id} className={styles.item} {...task} onChange={onChange} />))}
     </ul>
 }
 
